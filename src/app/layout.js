@@ -3,7 +3,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React, { useState , useEffect } from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,22 +14,27 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
+  // 1. 다크 모드 상태를 관리하는 상태 변수 선언
+  const [isDarkMode, setDarkMode] = useState(false);
 
-
-  // 로컬 스토리지에서 상태 값을 가져오기 위해 초기 상태를 설정합니다.
-  const [isDarkMode, setDarkMode] = useState(() => {
-    const storedDarkMode = localStorage.getItem('isDarkMode');
-    return storedDarkMode === false;
-  });
-
-  // 상태 값이 변경될 때마다 로컬 스토리지에 저장합니다.
+  // 2. 컴포넌트가 처음 렌더링될 때 한 번만 실행되는 로직
   useEffect(() => {
-    localStorage.setItem('isDarkMode', isDarkMode.toString());
-  }, [isDarkMode]);
+    // 로컬 스토리지에서 저장된 다크 모드 상태를 불러옴
+    const storedDarkMode = localStorage.getItem('isDarkMode');
+    // 저장된 상태가 존재할 경우 해당 상태를 적용
+    if (storedDarkMode) {
+      setDarkMode(JSON.parse(storedDarkMode));
+    }
+  }, []);
 
-  // prevValue 값을 변경하는 함수
+  // 3. 다크 모드를 토글하는 함수
   const toggleDarkMode = () => {
-    setDarkMode(prevValue => !prevValue);
+    // 현재 상태를 반전시켜서 새로운 상태값 설정
+    const newDarkMode = !isDarkMode;
+    // 상태 업데이트
+    setDarkMode(newDarkMode);
+    // 새로운 상태값을 로컬 스토리지에 저장
+    localStorage.setItem('isDarkMode', JSON.stringify(newDarkMode));
   };
 
 
@@ -36,16 +42,17 @@ export default function RootLayout({ children }) {
     <html lang="ko" className={`${isDarkMode === true ? 'dark' : ''}`} data-js-focus-visible>
       <body className="bg-white dark:bg-slate-900">
         <div id="top"></div>
-        <Link to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-3">맨위로</Link>
+        <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-20 right-20 w-20 h-20 rounded-full bg-slate-50 z-50">
+          <span className="sr-only">맨위로</span>
+        </ScrollLink>
         <header className="sticky top-0 border-b bg-white dark:bg-slate-600 shadow-sm z-50">
           <div className="flex flex-1 p-6">
             <div className="flex-1">
               <img src="" alt="logo" width={180} height={26} className="border" />
             </div>
-            
             <div className="flex flex-1 justify-center dark:text-white">
-              <Link activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5">회사소개</Link>
-              <div className="px-5">서비스소개</div>
+              <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink>
+              <Link href={"/ServiceList"} className="px-5 cursor-pointer">서비스소개</Link>
             </div>
             <div className="relative flex-1 text-right">
               <button type="button" onClick={toggleDarkMode}>
