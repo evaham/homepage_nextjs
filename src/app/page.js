@@ -30,7 +30,7 @@ export default async function Home() {
             </p>
           </div>
           {topics.map((list_group1)=>{
-            return <div className="h-60 p-6 rounded-2xl bg-slate-300" key={list_group1.id}><a href={`/read/${list_group1.id}`}>{list_group1.title}</a></div>
+            return <div className="h-60 p-6 rounded-2xl bg-slate-300 cursor-pointer transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-110" key={list_group1.id}><a href={`/read/${list_group1.id}`}>{list_group1.title}</a></div>
           })}
         </div>
       </div>
@@ -44,11 +44,13 @@ export default async function Home() {
             </p>
           </div>
           {topics.map((list_group1)=>{
-            return <div className="h-60 p-6 border rounded-2xl bg-slate-200 dark:bg-slate-800" key={list_group1.id}><a href={`/read/${list_group1.id}`}>{list_group1.title}</a></div>
+            return <div className="h-60 p-6 border rounded-2xl bg-slate-200 dark:bg-slate-800 cursor-pointer transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-110" key={list_group1.id}><a href={`/read/${list_group1.id}`}>{list_group1.title}</a></div>
           })}
         </div>
       </div>
-
+      <div id="coSection" className="">
+        <div>회사소개</div>
+      </div>
     </main>
   );
 }
