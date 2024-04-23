@@ -47,9 +47,9 @@ export default function RootLayout({ children }) {
         </ScrollLink>
         <header className="sticky top-0 border-b bg-white dark:bg-slate-600 shadow-sm z-50">
           <div className="flex flex-1 p-6">
-            <div className="flex-1">
+            <Link href={"/"} className="flex-1">
               <img src="" alt="logo" width={180} height={26} className="border" />
-            </div>
+            </Link>
             <div className="flex flex-1 justify-center dark:text-white">
               <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink>
               <Link href={"/ServiceList"} className="px-5 cursor-pointer">서비스소개</Link>
