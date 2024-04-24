@@ -51,8 +51,9 @@ export default function RootLayout({ children }) {
               <img src="" alt="logo" width={180} height={26} className="border" />
             </Link>
             <div className="flex flex-1 justify-center dark:text-white">
-              <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink>
-              <Link href={"/ServiceList"} className="px-5 cursor-pointer">서비스소개</Link>
+              {/* <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink> */}
+              <Link href={"/company"} className="px-5 cursor-pointer">회사소개</Link>
+              <Link href={"/service"} className="px-5 cursor-pointer">서비스소개</Link>
             </div>
             <div className="relative flex-1 text-right">
               <button type="button" onClick={toggleDarkMode}>

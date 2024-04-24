@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-export default function MyComponent() {
+export default function Service() {
   // API에서 받아온 데이터를 저장할 상태
   const [data, setData] = useState([]);
   // 필터링된 데이터를 저장할 상태
@@ -53,18 +53,33 @@ export default function MyComponent() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={handleSearchInputChange}
-      />
-      <ul>
+    <div className="flex max-w-7xl mx-auto py-14">
+      <div className="flex flex-col">
+        <button className="">포스솔루션</button>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchInputChange}
+        />
+      </div>
+      <div className="grid grid-cols-4 grid-flow-row gap-10">
         {filteredData.map(item => (
-          <li key={item.id}>{item.title}</li>
+          <div key={item.id} className="h-60 p-6 rounded-2xl bg-slate-200 dark:bg-slate-800 cursor-pointer transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-110">
+            <a href="" className="flex px-3 py-2 rounded-md bg-slate-400">
+              <img src="" width={100} height={100} className="border" />
+              <div className="min-w-0 relative flex-auto">
+                <p className="font-semibold text-slate-900 truncate pr-20">{item.title}</p>
+                <p className="">텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트</p>
+                <dl>
+                  <dt></dt>
+                  <dd></dd>
+                </dl>
+              </div>
+            </a>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

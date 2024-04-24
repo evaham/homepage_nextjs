@@ -1,8 +1,8 @@
 import Image from "next/image";
+const resp = await fetch('http://localhost:9999/list_group1/', { cache: 'no-store'});
+const topics = await resp.json();
 
-export default async function Home() {
-  const resp = await fetch('http://localhost:9999/list_group1/', { cache: 'no-store'});
-  const topics = await resp.json();
+export default async function Detail() {
 
   return (
     <main className="">
@@ -47,6 +47,9 @@ export default async function Home() {
             return <div className="h-60 p-6 border rounded-2xl bg-slate-200 dark:bg-slate-800 cursor-pointer transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-110" key={list_group1.id}><a href={`/read/${list_group1.id}`}>{list_group1.title}</a></div>
           })}
         </div>
+      </div>
+      <div id="coSection" className="">
+        <div>회사소개</div>
       </div>
     </main>
   );
