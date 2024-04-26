@@ -2,57 +2,100 @@
   "list_group1": [
     {
       "id": "1",
-      "title": "매장관리 프로그램",
+      "title": "매장운영의 기본중 기본, 매장관리 프로그램",
+      "cate": "포스솔루션",
+      "service":"MGR",
+      "img":"https://cdn.pixabay.com/photo/2017/08/06/08/55/key-chain-2590442_960_720.jpg",
       "body": "html is .."
     },
     {
       "id": "2",
       "title": "판매등록 프로그램",
+      "cate": "포스솔루션",
+      "service":"OPR",
+      "img":"https://cdn.pixabay.com/photo/2016/03/06/13/04/if-the-1240330_960_720.jpg",
+
       "body": "css is.."
     },
     {
       "id": "3",
       "title": "결제관리 프로그램",
+      "cate": "포스솔루션",
+      "service":"MIS",
+      "img":"https://cdn.pixabay.com/photo/2023/11/21/13/29/ai-generated-8403412_960_720.jpg",
+
       "body": "react is.."
     },
     {
       "id": "4",
       "title": "공급사용 프로그램",
+      "cate": "포스솔루션",
+      "service":"PTR",
+      "img":"https://cdn.pixabay.com/photo/2017/10/04/04/19/sky-2815020_960_720.jpg",
+
       "body": "414141414"
     },
     {
       "id": "5",
       "title": "본부시스템",
+      "cate": "포스솔루션",
+      "service":"본부시스템",
+      "img":"https://cdn.pixabay.com/photo/2018/08/12/01/43/system-3599932_960_720.jpg",
+
       "body": "react is.."
     },
     {
       "id": "6",
       "title": "투게더 키오스크",
+      "cate": "포스솔루션",
+      "service":"키오스크",
+      "img":"https://cdn.pixabay.com/photo/2013/07/19/00/18/splashing-165192_960_720.jpg",
+
       "body": "react is.."
     },
     {
       "id": "7",
-      "title": "투게더데이터(D2)",
+      "title": "투게더데이터",
+      "cate": "포스솔루션",
+      "service":"투게더데이터",
+      "img":"https://cdn.pixabay.com/photo/2017/11/27/21/31/computer-2982270_960_720.jpg",
+
       "body": "react is.."
     },
     {
       "id": "8",
       "title": "투게더 POP",
+      "cate": "포스솔루션",
+      "service":"POP",
+      "img":"https://cdn.pixabay.com/photo/2023/10/18/08/38/milkshake-8323288_960_720.jpg",
+
       "body": "react is.."
     },
     {
       "id": "9",
       "title": "전자가격 표시기(ESL)",
+      "cate": "모바일솔루션",
+      "service":"전자가격표시기 ESL",
+      "img":"https://cdn.pixabay.com/photo/2017/11/27/21/31/computer-2982270_960_720.jpg",
+
       "body": "react is.."
     },
     {
       "id": "10",
       "title": "문자서비스",
+      "cate": "모바일솔루션",
+      "service":"문자서비스",
+      "img":"https://cdn.pixabay.com/photo/2023/10/18/08/38/milkshake-8323288_960_720.jpg",
+
       "body": "react is.."
     },
     {
       "id": "11",
       "title": "CCTV연동",
+      "cate": "포스솔루션",
+      "service":"CCTV",
+      "img":"https://cdn.pixabay.com/photo/2023/10/18/08/38/milkshake-8323288_960_720.jpg",
+
       "body": "react is.."
     }
   ]

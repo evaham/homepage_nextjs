@@ -41,7 +41,7 @@ export default function Service() {
     // 검색어가 변경될 때마다 필터링된 데이터를 업데이트
     const filtered = data.filter(item =>
       // 검색어가 포함된 데이터만 필터링 하여 반환
-      item.title.toLowerCase().includes(searchQuery.toLowerCase())
+      item.cate.toLowerCase().includes(searchQuery.toLowerCase())
     );
     
     setFilteredData(filtered);
@@ -52,32 +52,42 @@ export default function Service() {
     setSearchQuery(event.target.value);
   };
 
+  const tab = [
+    {id: 1, cate: "", search : "", name : "전체"},
+    {id: 2, cate: "포스솔루션", search : "포스솔루션", name : "포스솔루션"},
+    {id: 3, cate: "모바일솔루션", search : "모바일솔루션", name : "모바일솔루션"}
+  ];
+
+  const [selectedTab, setSelectedTab] = useState("");
+
+  const handleTabClick = (e) => {
+    setSelectedTab (e)
+    setSearchQuery (e);
+  };
+
+
   return (
     <div className="flex max-w-7xl mx-auto py-14">
-      <div className="flex flex-col">
-        <button className="">포스솔루션</button>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchInputChange}
-        />
-      </div>
-      <div className="grid grid-cols-4 grid-flow-row gap-10">
+      <ul className="flex flex-col items-start w-2/5 mr-8" >
+        {tab.map((tab)=>{
+          return (
+            <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`border rounded-full mt-2 px-6 py-2 text-sm cursor-pointer ${selectedTab === tab.cate ? 'bg-slate-600' : ''}`}>{selectedTab}/{tab.cate}{tab.name}</li>
+          )
+        })}
+        {/* <input className="" type="text" placeholder="Search..." value={searchQuery} onChange={handleSearchInputChange} /> */}
+      </ul>
+      <div className="grid grid-cols-3 grid-flow-row gap-10">
         {filteredData.map(item => (
-          <div key={item.id} className="h-60 p-6 rounded-2xl bg-slate-200 dark:bg-slate-800 cursor-pointer transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-110">
-            <a href="" className="flex px-3 py-2 rounded-md bg-slate-400">
-              <img src="" width={100} height={100} className="border" />
-              <div className="min-w-0 relative flex-auto">
-                <p className="font-semibold text-slate-900 truncate pr-20">{item.title}</p>
-                <p className="">텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트</p>
-                <dl>
-                  <dt></dt>
-                  <dd></dd>
-                </dl>
-              </div>
-            </a>
-          </div>
+          <a key={item.id} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-slate-100 dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
+            <div className="flex flex-col flex-auto px-6 py-4">
+              <p className="mb-3 text-sm text-slate-500">{item.group}</p>
+              <p className="text-xl font-bold text-slate-700 leading-tight">{item.title}</p>
+              <p className="mt-auto text-sm text-slate-500">{item.service}</p>
+            </div>
+            <div className="h-3/6 mt-auto bg-slate-200">
+              <img src={item.img} className="w-full min-h-full" alt="" />
+            </div>            
+          </a>
         ))}
       </div>
     </div>
