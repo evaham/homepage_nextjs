@@ -67,29 +67,34 @@ export default function Company() {
 
 
   return (
-    <div className="flex max-w-7xl mx-auto py-14">
-      <ul className="flex flex-col items-start w-2/5 mr-8" >
-        {tab.map((tab)=>{
-          return (
-            <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`border rounded-full mt-2 px-6 py-2 text-sm cursor-pointer ${selectedTab === tab.cate ? 'bg-slate-600' : ''}`}>{selectedTab}/{tab.cate}{tab.name}</li>
-          )
-        })}
-        {/* <input className="" type="text" placeholder="Search..." value={searchQuery} onChange={handleSearchInputChange} /> */}
-      </ul>
-      <div className="grid grid-cols-3 grid-flow-row gap-10">
-        {filteredData.map(item => (
-          <a key={item.id} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-slate-100 dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
-            <div className="flex flex-col flex-auto px-6 py-4">
-              <p className="mb-3 text-sm text-slate-500">{item.group}</p>
-              <p className="text-xl font-bold text-slate-700 leading-tight">{item.title}</p>
-              <p className="mt-auto text-sm text-slate-500">{item.service}</p>
-            </div>
-            <div className="h-3/6 mt-auto bg-slate-200">
-              <img src={item.img} className="w-full min-h-full" alt="" />
-            </div>            
-          </a>
-        ))}
+    <main className="">
+      <div className="w-[30rem] mx-auto pt-28 lg:w-[80rem]">
+        <p className="text-4xl text-center font-bold tracking-tighter">회사소개</p>
+        <p className="my-5 text-lg text-center text-slate-600 tracking-tighter">투게더스의 소개 및 최근정보를 알려드립니다.</p>
       </div>
-    </div>
+      <div className="w-[30rem] mx-auto flex py-14 lg:w-[80rem]">
+        <ul className="flex flex-col items-start w-2/5 mr-8" >
+          {tab.map((tab)=>{
+            return (
+              <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`font-bold text-slate-500 bg-slate-200 rounded-full mt-2 px-6 py-2 cursor-pointer ${selectedTab === tab.cate ? 'bg-blue-900 text-white' : ''}`}>{tab.name}</li>
+            )
+          })}
+        </ul>
+        <div className="grid grid-cols-3 grid-flow-row gap-10">
+          {filteredData.map(item => (
+            <a key={item.id} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-white dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
+              <div className="flex flex-col flex-auto px-6 py-4">
+                <p className="mb-3 text-sm text-slate-500">{item.cate}</p>
+                <p className="text-xl font-bold text-slate-700 leading-tight">{item.title}</p>
+                <p className="mt-auto text-sm text-slate-500">{item.service}</p>
+              </div>
+              <div className="h-3/6 mt-auto bg-slate-200">
+                <img src={item.img} className="w-full min-h-full" alt="" />
+              </div>            
+            </a>
+          ))}
+        </div>
+      </div>
+    </main>
   );
 }

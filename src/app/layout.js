@@ -5,8 +5,9 @@ import "./globals.css";
 import React, { useState , useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -14,6 +15,10 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
+  
+  const router = useRouter();
+
+
   // 1. 다크 모드 상태를 관리하는 상태 변수 선언
   const [isDarkMode, setDarkMode] = useState(false);
 
@@ -40,19 +45,20 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="ko" className={`${isDarkMode === true ? 'dark' : ''}`} data-js-focus-visible>
-      <body className="bg-white dark:bg-slate-900">
-        <div id="top"></div>
-        <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-20 right-20 w-20 h-20 rounded-full bg-slate-50 z-50">
+      <body className="bg-slate-50 dark:bg-slate-900 {inter.className}">
+        <div id="top" className="sr-only"></div>
+        <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-16 right-16 w-14 h-14 flex justify-center items-center rounded-full bg-slate-50 z-50">
           <span className="sr-only">맨위로</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 -960 960 960" fill="#000"><path d="m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z"/></svg>
         </ScrollLink>
         <header className="sticky top-0 border-b bg-white dark:bg-slate-600 shadow-sm z-50">
           <div className="flex flex-1 p-6">
             <Link href={"/"} className="flex-1">
-              <img src="" alt="logo" width={180} height={26} className="border" />
+              <img src="/images/BI.png" alt="logo" width={180} height={26} />
             </Link>
-            <div className="flex flex-1 justify-center dark:text-white">
+            <div className="flex-1 justify-center dark:text-white hidden sm:flex">
               {/* <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink> */}
-              <Link href={"/company"} className="px-5 cursor-pointer">회사소개</Link>
+              <Link href={"/company"} className={router.pathname == '/company' ? 'text-red-700':''}>회사소개</Link>
               <Link href={"/service"} className="px-5 cursor-pointer">서비스소개</Link>
             </div>
             <div className="relative flex-1 text-right">
@@ -72,11 +78,11 @@ export default function RootLayout({ children }) {
           </div>
         </header>
         {children}
-        <footer className=" h-72 p-10 bg-slate-500">
-          <div className="max-w-7xl mx-auto">
-            <a><img src="" alt="logo" width={123} height={60} className="border"></img></a>
-            <address>
-              <a>개인정보처리방침</a>
+        <footer className="py-10 bg-slate-500">
+          <div className="w-[30rem] mx-auto lg:w-[80rem]">
+            <a><img src="/images/BI_w.png" alt="logo" className="" /></a>
+            <address className="py-10 not-italic">
+              <a href="#">개인정보처리방침</a>
               <p><span>본사 : 인천시 부평구 부평대로 301 남광센트렉스 901</span> <span>대표이사 : 이근수</span> <span>사업자등록번호 : 137-81-39709</span> <span>통신판매업 신고번호 : 제2009-인천부평-00182호</span></p>
             </address>
             <p>COPYRIGHT © TOGETHERs Corp. ALL RIGHTS RESERVED.</p>
