@@ -77,7 +77,7 @@ export default function Service() {
         <ul className="flex flex-col items-start w-2/5 mr-8" >
           {tab.map((tab)=>{
             return (
-              <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`font-bold text-slate-500 bg-slate-200 rounded-full mt-2 px-6 py-2 cursor-pointer ${selectedTab === tab.cate ? 'bg-blue-900 text-white' : ''}`}>{tab.name}</li>
+              <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`font-bold rounded-full mt-2 px-6 py-2 cursor-pointer ${selectedTab === tab.cate ? 'bg-blue-900 text-white' : 'text-slate-500 bg-slate-200'}`}>{tab.name}</li>
             )
           })}
         </ul>

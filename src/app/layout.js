@@ -5,7 +5,7 @@ import "./globals.css";
 import React, { useState , useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import { useRouter , usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +15,10 @@ const inter = Inter({ subsets: ['latin'] })
 // };
 
 export default function RootLayout({ children }) {
-  
+
   const router = useRouter();
+  const pathname = usePathname();
+
 
 
   // 1. 다크 모드 상태를 관리하는 상태 변수 선언
@@ -56,10 +58,14 @@ export default function RootLayout({ children }) {
             <Link href={"/"} className="flex-1">
               <img src="/images/BI.png" alt="logo" width={180} height={26} />
             </Link>
-            <div className="flex-1 justify-center dark:text-white hidden sm:flex">
+            <div className="flex-1 justify-center dark:text-white hidden sm:flex text-lg">
               {/* <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink> */}
-              <Link href={"/company"} className={router.pathname == '/company' ? 'text-red-700':''}>회사소개</Link>
-              <Link href={"/service"} className="px-5 cursor-pointer">서비스소개</Link>
+              <Link href={"/company"} className={`relative mx-4 after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full ${pathname === '/company' ? 'text-blue-900 font-bold after:w-[100%]' : 'text-slate-600'}`}>
+                회사소개
+              </Link>
+              <Link href={"/service"} className={`relative mx-4 after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full ${pathname === '/service' ? 'text-blue-900 font-bold after:w-[100%]' : 'text-slate-600'}`}>
+                서비스소개
+              </Link>
             </div>
             <div className="relative flex-1 text-right">
               <button type="button" onClick={toggleDarkMode}>
