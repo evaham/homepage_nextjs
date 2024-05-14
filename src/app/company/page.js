@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import Link from 'next/link'
 
 export default function Company() {
   // API에서 받아온 데이터를 저장할 상태
@@ -82,7 +83,7 @@ export default function Company() {
         </ul>
         <div className="grid grid-cols-3 grid-flow-row gap-10">
           {filteredData.map(item => (
-            <a key={item.id} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-white dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
+            <Link href={`detail/${item.id}`} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-white cursor-pointer dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
               <div className="flex flex-col flex-auto px-6 py-4">
                 <p className="mb-3 text-sm text-slate-500">{item.cate}</p>
                 <p className="text-xl font-bold text-slate-700 leading-tight">{item.title}</p>
@@ -90,8 +91,8 @@ export default function Company() {
               </div>
               <div className="h-3/6 mt-auto bg-slate-200">
                 <img src={item.img} className="w-full min-h-full" alt="" />
-              </div>            
-            </a>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

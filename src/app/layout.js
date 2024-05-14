@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
         <header className="sticky top-0 border-b bg-white dark:bg-slate-600 shadow-sm z-50">
           <div className="flex flex-1 p-6">
             <Link href={"/"} className="flex-1">
-              <img src="images/BI.png" alt="logo" width={180} height={26} />
+              <img src="/images/BI.png" alt="logo" width={180} height={26} />
             </Link>
             <div className="flex-1 justify-center dark:text-white hidden sm:flex text-lg">
               {/* <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink> */}
@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
         {children}
         <footer className="py-10 bg-slate-500">
           <div className="w-[30rem] mx-auto lg:w-[80rem]">
-            <a><img src="images/BI_w.png" alt="logo" className="" /></a>
+            <a><img src="/images/BI_w.png" alt="logo" className="" /></a>
             <address className="py-10 not-italic">
               <a href="#">개인정보처리방침</a>
               <p><span>본사 : 인천시 부평구 부평대로 301 남광센트렉스 901</span> <span>대표이사 : 이근수</span> <span>사업자등록번호 : 137-81-39709</span> <span>통신판매업 신고번호 : 제2009-인천부평-00182호</span></p>

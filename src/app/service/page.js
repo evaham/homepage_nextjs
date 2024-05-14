@@ -73,17 +73,17 @@ export default function Service() {
         <p className="my-5 text-lg text-center text-slate-600 tracking-tighter">투게더스에서 제공하는 서비스를 소개합니다.</p>
       </div>
 
-      <div className="flex max-w-7xl mx-auto py-14">
+      <div className="w-[30rem] mx-auto flex py-14 lg:w-[80rem]">
         <ul className="flex flex-col items-start w-2/5 mr-8" >
           {tab.map((tab)=>{
             return (
-              <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`font-bold rounded-full mt-2 px-6 py-2 cursor-pointer ${selectedTab === tab.cate ? 'bg-blue-900 text-white' : 'text-slate-500 bg-slate-200'}`}>{tab.name}</li>
+              <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`font-bold rounded-full mt-2 px-6 py-2 hover:cursor-pointer ${selectedTab === tab.cate ? 'bg-blue-900 text-white' : 'text-slate-500 bg-slate-200'}`}>{tab.name}</li>
             )
           })}
         </ul>
         <div className="grid grid-cols-3 grid-flow-row gap-10">
           {filteredData.map(item => (
-            <a key={item.id} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-white dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
+            <a href={`/detail/${item.id}`} key={item.id} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-white cursor-pointer dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
               <div className="flex flex-col flex-auto px-6 py-4">
                 <p className="mb-3 text-sm text-slate-500">{item.cate}</p>
                 <p className="text-xl font-bold text-slate-700 leading-tight">{item.title}</p>
