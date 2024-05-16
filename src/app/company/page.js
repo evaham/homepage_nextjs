@@ -73,20 +73,20 @@ export default function Company() {
         <p className="text-4xl text-center font-bold tracking-tighter">회사소개</p>
         <p className="my-5 text-lg text-center text-slate-600 tracking-tighter">투게더스의 소개 및 최근정보를 알려드립니다.</p>
       </div>
-      <div className="w-[30rem] mx-auto flex py-14 lg:w-[80rem]">
-        <ul className="flex flex-col items-start w-2/5 mr-8" >
+      <div className="w-[30rem] mx-auto flex flex-col py-14 lg:w-[80rem] lg:flex-row">
+        <ul className="flex flex-row py-4 lg:flex-col items-start lg:w-2/5 mr-8" >
           {tab.map((tab)=>{
             return (
-              <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`font-bold rounded-full mt-2 px-6 py-2 cursor-pointer ${selectedTab === tab.cate ? 'bg-blue-900 text-white' : 'text-slate-500 bg-slate-200'}`}>{tab.name}</li>
+              <li key={tab.id} onClick={() => handleTabClick(tab.cate)} className={`font-bold rounded-full m-2 px-6 py-2 cursor-pointer ${selectedTab === tab.cate ? 'bg-blue-900 text-white' : 'text-slate-500 bg-slate-200'}`}>{tab.name}</li>
             )
           })}
         </ul>
-        <div className="grid grid-cols-3 grid-flow-row gap-10">
+        <div className="grid lg:grid-cols-3 grid-flow-row gap-10">
           {filteredData.map(item => (
             <Link href={`detail/${item.id}`} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-white cursor-pointer dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
               <div className="flex flex-col flex-auto px-6 py-4">
                 <p className="mb-3 text-sm text-slate-500">{item.cate}</p>
-                <p className="text-xl font-bold text-slate-700 leading-tight">{item.title}</p>
+                <p className="text-xl font-bold text-slate-700 leading-tight" dangerouslySetInnerHTML={{ __html: item.title }}></p>
                 <p className="mt-auto text-sm text-slate-500">{item.service}</p>
               </div>
               <div className="h-3/6 mt-auto bg-slate-200">
