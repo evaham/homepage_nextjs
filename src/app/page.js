@@ -23,7 +23,7 @@ export default async function Home() {
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{list_group1.cate}</p>
-                  <p className="text-xl font-bold leading-tight">{list_group1.title}</p>
+                  <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: list_group1.title }}></p>
                 </div>
               </a>
             )
@@ -47,7 +47,7 @@ export default async function Home() {
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{list_group1.cate}</p>
-                  <p className="text-xl font-bold leading-tight">{list_group1.title}</p>
+                  <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: list_group1.title }}></p>
                   {/* <p className="mt-auto text-sm">{list_group1.service}</p> */}
                 </div>
               </a>
@@ -72,7 +72,7 @@ export default async function Home() {
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{list_group1.cate}</p>
-                  <p className="text-xl font-bold leading-tight">{list_group1.title}</p>
+                  <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: list_group1.title }}></p>
                   {/* <p className="mt-auto text-sm">{list_group1.service}</p> */}
                 </div>
               </a>

@@ -11,7 +11,7 @@ export default async function DetailPage(props) {
       <div className="w-[30rem] mx-auto pt-28 lg:w-[51rem]">
         <div className="">
           <p className="text-xl text-center tracking-tighter">{topics.cate}</p>
-          <p className="mt-4 text-center text-5xl font-bold tracking-tighter" dangerouslySetInnerHTML={{ __html: topics.title }}></p>
+          <p className="mt-4 text-center text-5xl font-bold tracking-tighter leading-tight" dangerouslySetInnerHTML={{ __html: topics.title }}></p>
 
         </div>
         
