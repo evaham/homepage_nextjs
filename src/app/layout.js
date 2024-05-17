@@ -84,14 +84,14 @@ export default function RootLayout({ children }) {
           </div>
         </header>
         {children}
-        <div className="py-10 bg-blue-900">
+        <div className="py-10 bg-blue-800">
           <div className="w-[30rem] mx-auto lg:w-[80rem] flex flex-col lg:flex-row justify-center text-white font-bold ">
-            <button className="flex-1 m-3 p-6 border">투게더포스 도입문의</button>
-            <button className="flex-1 m-3 p-6 border">투게더포스 입정문의</button>
-            <button className="flex-1 m-3 p-6 border">제휴문의</button>
+            <button className="flex-1 m-6 p-6 rounded-lg bg-blue-700">투게더포스 도입문의</button>
+            <button className="flex-1 m-6 p-6 rounded-lg bg-blue-700">투게더포스 입정문의</button>
+            <button className="flex-1 m-6 p-6 rounded-lg bg-blue-700">제휴문의</button>
           </div>
         </div>
-        <footer className="py-10 bg-slate-500">
+        <footer className="py-10 bg-stone-300">
           <div className="w-[30rem] mx-auto lg:w-[80rem]">
             <a><img src="/images/BI_w.png" alt="logo" className="" /></a>
             <address className="py-10 not-italic">
