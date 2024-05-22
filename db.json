@@ -5,7 +5,7 @@
       "title": "매장운영의 기본중 기본, <br>매장관리 프로그램",
       "cate": "포스솔루션",
       "service":"MGR",
-      "img":"https://cdn.pixabay.com/photo/2017/08/06/08/55/key-chain-2590442_960_720.jpg",
+      "img":"http://localhost:3000/images/BI.png",
       "body": "<p>매장운영</p><div>힘들다</div><p>이것은 매우 길고 자세한 블로그 글입니다. 여러 단락과 태그가 포함됩니다.</p><p>예를 들어:</p><ul><li>첫 번째 항목</li><li>두 번째 항목</li></ul><p>다른 예제:</p><blockquote>인용문입니다.</blockquote><p>이 글의 끝에는 몇 가지 더 많은 텍스트가 포함될 수 있습니다.</p>"
       
     },

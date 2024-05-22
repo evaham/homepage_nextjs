@@ -1,13 +1,15 @@
 'use client'
 
-import { Inter } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import React, { useState , useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
 import { useRouter , usePathname } from "next/navigation";
 
-const inter = Inter({ subsets: ['latin'] })
+const notoSansKr = Noto_Sans_KR({
+  subsets: ['latin'] 
+})
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -46,8 +48,8 @@ export default function RootLayout({ children }) {
 
 
   return (
-    <html lang="ko" className={`${isDarkMode === true ? 'dark' : ''}`} data-js-focus-visible>
-      <body className="bg-slate-50 dark:bg-slate-900 {inter.className}">
+    <html lang="ko" className={`${notoSansKr.className} ${isDarkMode === true ? 'dark' : ''}`} data-js-focus-visible>
+      <body className={"bg-slate-50 dark:bg-slate-900"}>
         <div id="top" className="sr-only"></div>
         <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-16 right-16 w-14 h-14 flex justify-center items-center rounded-full bg-slate-50 z-50">
           <span className="sr-only">맨위로</span>
@@ -58,7 +60,7 @@ export default function RootLayout({ children }) {
             <Link href={"/"} className="flex-1">
               <img src="/images/BI.png" alt="logo" width={180} height={26} />
             </Link>
-            <div className="flex-1 justify-center dark:text-white hidden sm:flex text-lg">
+            <div className="flex-1 justify-center dark:text-white hidden lg:flex text-lg">
               {/* <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink> */}
               <Link href={"/company"} className={`relative mx-4 after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full ${pathname === '/company' ? 'text-blue-900 font-bold after:w-[100%]' : 'text-slate-600'}`}>
                 회사소개
@@ -84,21 +86,29 @@ export default function RootLayout({ children }) {
           </div>
         </header>
         {children}
-        <div className="py-10 bg-blue-800">
-          <div className="w-[30rem] mx-auto lg:w-[80rem] flex flex-col lg:flex-row justify-center text-white font-bold ">
-            <button className="flex-1 m-6 p-6 rounded-lg bg-blue-700">투게더포스 도입문의</button>
-            <button className="flex-1 m-6 p-6 rounded-lg bg-blue-700">투게더포스 입정문의</button>
-            <button className="flex-1 m-6 p-6 rounded-lg bg-blue-700">제휴문의</button>
+        <div className="py-10 bg-indigo-800">
+          <div className="w-[30rem] mx-auto lg:w-[80rem] flex flex-col lg:flex-row justify-center font-bold ">
+            <button className="flex-1 m-6 p-6 rounded-lg bg-white">투게더포스<br/>도입문의</button>
+            <button className="flex-1 m-6 p-6 rounded-lg bg-white">투게더클럽<br/>입정문의</button>
+            <button className="flex-1 m-6 p-6 rounded-lg bg-white">제휴문의</button>
           </div>
         </div>
-        <footer className="py-10 bg-stone-300">
+        <footer className="py-10 bg-gray-700">
           <div className="w-[30rem] mx-auto lg:w-[80rem]">
             <a><img src="/images/BI_w.png" alt="logo" className="" /></a>
-            <address className="py-10 not-italic">
+            <address className="py-5 not-italic">
               <a href="#">개인정보처리방침</a>
-              <p><span>본사 : 인천시 부평구 부평대로 301 남광센트렉스 901</span> <span>대표이사 : 이근수</span> <span>사업자등록번호 : 137-81-39709</span> <span>통신판매업 신고번호 : 제2009-인천부평-00182호</span></p>
+              <p className="text-slate-300">
+                <span className="block mb-3 tracking-wider font-semibold text-white">(주)투게더스</span>
+                <span>본사 : 인천시 부평구 부평대로 301 남광센트렉스 901</span>
+                <span className="mx-4 text-slate-400">·</span>
+                <span>대표이사 : 이근수</span><br />
+                <span>사업자등록번호 : 137-81-39709</span>
+                <span className="mx-4 text-slate-400">·</span>
+                <span>통신판매업 신고번호 : 제2009-인천부평-00182호</span>
+              </p>
             </address>
-            <p>COPYRIGHT © TOGETHERs Corp. ALL RIGHTS RESERVED.</p>
+            <p className="text-slate-400">COPYRIGHT © TOGETHERs Corp. ALL RIGHTS RESERVED.</p>
           </div>
         </footer>
       </body>
