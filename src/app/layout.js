@@ -69,7 +69,11 @@ export default function RootLayout({ children }) {
                 서비스소개
               </Link>
             </div>
+
             <div className="relative flex-1 text-right">
+              <button type="button" className="">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="fill-slate-700"><path d="M160-269.23v-40h640v40H160ZM160-460v-40h640v40H160Zm0-190.77v-40h640v40H160Z"/></svg>
+              </button>
               <button type="button" onClick={toggleDarkMode}>
                 <span className="dark:hidden">
                   <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
@@ -87,14 +91,14 @@ export default function RootLayout({ children }) {
         </header>
         {children}
         <div className="py-10 bg-indigo-800">
-          <div className="w-[30rem] mx-auto lg:w-[80rem] flex flex-col lg:flex-row justify-center font-bold ">
+          <div className="mx-auto lg:w-[80rem] flex flex-col lg:flex-row justify-center font-bold ">
             <button className="flex-1 m-6 p-6 rounded-lg bg-white">투게더포스<br/>도입문의</button>
             <button className="flex-1 m-6 p-6 rounded-lg bg-white">투게더클럽<br/>입정문의</button>
             <button className="flex-1 m-6 p-6 rounded-lg bg-white">제휴문의</button>
           </div>
         </div>
         <footer className="py-10 bg-gray-700">
-          <div className="w-[30rem] mx-auto lg:w-[80rem]">
+          <div className="mx-auto lg:w-[80rem]">
             <a><img src="/images/BI_w.png" alt="logo" className="" /></a>
             <address className="py-5 not-italic">
               <a href="#">개인정보처리방침</a>

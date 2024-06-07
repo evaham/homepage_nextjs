@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import DBdata from "/public/data/db.json";
 
 export default function Service() {
   // API에서 받아온 데이터를 저장할 상태
@@ -10,25 +11,32 @@ export default function Service() {
   // 검색어 상태
   const [searchQuery, setSearchQuery] = useState('');
 
+  // // 컴포넌트가 마운트될 때 한번만 실행
+  // useEffect(() => {
+  //   // API로부터 데이터를 가져오는 비동기 함수
+  //   const fetchData = async () => {
+  //     try {
+  //       // API 호출하여 데이터 가져오기
+  //       const response = await fetch('http://localhost:9999/list_group1/');
+
+  //       // JSON 형식으로 파싱하여 데이터 저장
+  //       const jsonData = await response.json();
+  //       setData(jsonData);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   // fetchData 함수 실행
+  //   fetchData();
+  // }, []);
+
   // 컴포넌트가 마운트될 때 한번만 실행
   useEffect(() => {
-    // API로부터 데이터를 가져오는 비동기 함수
-    const fetchData = async () => {
-      try {
-        // API 호출하여 데이터 가져오기
-        const response = await fetch('http://localhost:9999/list_group1/');
-
-        // JSON 형식으로 파싱하여 데이터 저장
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    // fetchData 함수 실행
-    fetchData();
+    // JSON 데이터를 직접 사용하여 데이터 저장
+    setData(DBdata.list_group1);
   }, []);
+  
 
 
   // 검색어 또는 데이터가 변경될 때마다 실행
