@@ -8,7 +8,7 @@ export default async function DetailPage(props) {
 
 
   return (
-    <main>
+    <div>
       <div className="w-[30rem] mx-auto pt-28 lg:w-[51rem]">
         <div className="">
           <p className="text-xl text-center tracking-tighter">{resp.cate}</p>
@@ -21,6 +21,6 @@ export default async function DetailPage(props) {
           <div dangerouslySetInnerHTML={{ __html: resp.body }}></div>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

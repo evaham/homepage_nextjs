@@ -75,7 +75,7 @@ export default function Service() {
 
 
   return (
-    <main>
+    <div>
       <div className="w-[30rem] mx-auto pt-28 lg:w-[80rem]">
         <p className="text-4xl text-center font-bold tracking-tighter">서비스 소개</p>
         <p className="my-5 text-lg text-center text-slate-600 tracking-tighter">투게더스에서 제공하는 서비스를 소개합니다.</p>
@@ -103,6 +103,6 @@ export default function Service() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

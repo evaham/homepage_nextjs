@@ -73,7 +73,7 @@ export default function Company() {
 
 
   return (
-    <main className="">
+    <div className="">
       <div className="w-[30rem] mx-auto pt-28 lg:w-[80rem]">
         <p className="text-4xl text-center font-bold tracking-tighter">회사소개</p>
         <p className="my-5 text-lg text-center text-slate-600 tracking-tighter">투게더스의 소개 및 최근정보를 알려드립니다.</p>
@@ -101,6 +101,6 @@ export default function Company() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

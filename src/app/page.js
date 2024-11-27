@@ -37,7 +37,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-96">
+    <div className="min-h-96">
       <div className="">
         <div className="mx-auto py-32 px-5 gap-5 grid lg:w-[80rem] lg:grid-cols-4 lg:grid-flow-row lg:gap-6">
           <div className="relative flex flex-col py-5 px-10 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3">
@@ -136,6 +136,6 @@ export default function Home() {
         </div>
       </div>
 
-    </main>
+    </div>
   );
 }
